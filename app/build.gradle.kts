@@ -63,10 +63,21 @@ dependencies {
     //nuevas dependecias
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
 
     //imagenes
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+
+    //ktor
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    //implementation(libs.ktor.client.darwin)
+
+    //corutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 }
 
 // Allow references to generated code
