@@ -31,30 +31,37 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.coincapapp.viewModels.AssetListViewModel
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.text.style.TextAlign
 
 
 @Composable
-fun AssetList() {
-//fun AssetList(viewModel: AssetListViewModel = hiltViewModel()) {
+fun AssetList(viewModel: AssetListViewModel = hiltViewModel()) {
     //var assets = viewModel.assets.collectAsState()
+    val assets by viewModel.assets.collectAsState()
 
-    /*LazyColumn(
+    LazyColumn(
         modifier = Modifier.fillMaxHeight()
             .background(MaterialTheme.colorScheme.onBackground)
              .padding(WindowInsets.systemBars.asPaddingValues())
     ) {
-//        items(assets) { asset ->
-//            AssetRow(asset)
-//
-//        }
-    }*/
+        items(assets, key = {it.id}) { asset ->
+            AssetRow(asset)
+            //AssetRow(asset) { assetId ->
+            //    navController.navigate("${BottomNavigationItem.Home.route}/${assetId}")
+            //}
+        }
+    }
 
-    Column(
+   /* Column(
         modifier = Modifier.fillMaxHeight()
             .background(MaterialTheme.colorScheme.onBackground)
             .padding(WindowInsets.systemBars.asPaddingValues())
@@ -78,7 +85,7 @@ fun AssetList() {
             price = "3000"
 
         ))
-    }
+    }*/
 }
 
 
@@ -130,7 +137,8 @@ fun AssetRow(asset: Asset) {
         Text(
             text = "${asset.percentage}%",
             fontSize = 16.sp,
-            modifier = Modifier.padding(horizontal = 16.dp),
+            //modifier = Modifier.padding(horizontal = 16.dp),
+            modifier = Modifier.width(70.dp),
             color = if(asset.percentage >= 0) Color.Green else Color.Red,
             style = Typography.labelLarge
         )
@@ -138,7 +146,9 @@ fun AssetRow(asset: Asset) {
         Text(
             text = asset.price,
             fontSize = 16.sp,
-            modifier = Modifier.padding(horizontal = 16.dp),
+            //modifier = Modifier.padding(horizontal = 16.dp),
+            textAlign = TextAlign.End,
+            modifier = Modifier.width(70.dp),
             color = Color.White,
             style = Typography.labelLarge
         )
@@ -148,16 +158,20 @@ fun AssetRow(asset: Asset) {
 
 @Preview(
     showBackground = true,
-    showSystemUi = true
+    //showSystemUi = true
 )
-
 @Composable
-fun AssertRowPreview() {
+fun AssetsListPreview() {
+//    AssetsList()
+}
+
+//@Composable
+//fun AssertRowPreview() {
    // Column(
    //     verticalArrangement = Arrangement.Center,
    //     modifier = Modifier.fillMaxSize()
    // ) {
-        AssetList()
+        //AssetList()
 //        AssetRow(Asset(
 //            id = "1",
 //            name = "Bitcoin",
@@ -180,4 +194,4 @@ fun AssertRowPreview() {
         //AssetRow()
 
     //}
-}
+//}

@@ -19,19 +19,26 @@ import androidx.compose.ui.unit.dp
 import com.example.coincapapp.models.Asset
 import com.example.coincapapp.ui.theme.CoinCapAppTheme
 import com.example.coincapapp.views.AssetRow
+//import com.example.coincapapp.views.AssetsList
+import com.example.coincapapp.views.MainScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             CoinCapAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                MainScreen()
+                //Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                //    AssetsList()
 //                    Greeting(
 //                        name = "Android",
 //                        modifier = Modifier.padding(innerPadding)
 //                    )
-                    Column(
+                    /*Column(
                         verticalArrangement = Arrangement.Center,
                         modifier = Modifier.fillMaxSize()
                     ) {
@@ -60,15 +67,15 @@ class MainActivity : ComponentActivity() {
                         //Spacer(modifier = Modifier.size(16.dp))
                         //AssetRow()
 
-                    }
+                    }*/
 
-                }
+                //}
             }
         }
     }
 }
 
-@Composable
+/*@Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name! Jr",
@@ -82,4 +89,4 @@ fun GreetingPreview() {
     CoinCapAppTheme {
         Greeting("Android")
     }
-}
+}*/

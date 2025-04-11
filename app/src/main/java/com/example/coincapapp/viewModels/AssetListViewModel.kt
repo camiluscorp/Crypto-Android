@@ -25,10 +25,28 @@ class AssetListViewModel  @Inject constructor(
     private fun fetchAssets() {
         viewModelScope.launch {
             try {
-                val result = apiService.getAssets()
-                _assets.value = result
+                val result = apiService.getAssets().data
+                //_assets.value = result.data
+                val mappedAssets = result.map{ assetResponse ->
+                    //val price = assetResponse.priceUsd.format("%.2f").toDouble()
+                    //val percentage = assetResponse.changePercent24Hr.format("%.2f").toDouble()
+                    val price = String.format("%.2f", assetResponse.priceUsd.toDouble())
+                    val percentage = String.format("%.2f", assetResponse.changePercent24Hr.toDouble()).toDouble()
+
+                    Asset(
+                        assetResponse.id,
+                        assetResponse.name,
+                        assetResponse.symbol,
+                        price,//assetResponse.priceUsd,
+                        percentage
+
+                    )
+                }
+
+                _assets.emit(mappedAssets)
             } catch (e: Exception) {
                 //TODO: handle error
+                print(e.message)
             }
         }
     }

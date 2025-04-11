@@ -2,7 +2,7 @@ package com.example.coincapapp.models
 
 import kotlinx.serialization.Serializable
 
-@Serializable
+//@Serializable
 data class Asset(
         val id: String,
         val name: String,
