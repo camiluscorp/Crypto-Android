@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "966434388049",
+    "project_id": "crypto-mobil-android-jr2025",
+    "storage_bucket": "crypto-mobil-android-jr2025.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966434388049:android:476426dcab25f80e26e070",
+        "android_client_info": {
+          "package_name": "com.example.coincapapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcX_pK4OWcy4EU_bY_o9rrj571WBS3dxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
