@@ -5,6 +5,8 @@ plugins {
     id("kotlin-kapt")
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.kotlin.serialization)
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -83,6 +85,27 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+    //Import the firebase BoM
+    //implementation(libs.firebase.bom)
+
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    //implementation(libs.firebase.analytics)
+    //implementation (libs.firebase.auth.ktx)
+    // Google Sign In SDK
+    implementation(libs.play.services.auth)
+
+    // Firebase SDK
+    implementation(libs.firebase.bom)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.firebase.auth.ktx)
+
+    // Firebase UI Library
+    implementation(libs.firebase.ui.auth)
+    implementation(libs.firebase.ui.database)
 
 }
 
