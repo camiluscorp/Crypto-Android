@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-Crypto-Android/app/google-services.json
+app/google-services.json
